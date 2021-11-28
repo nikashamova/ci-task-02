@@ -1,11 +1,11 @@
 package ru.nsu.ci.controller;
 
-import ru.nsu.ci.service.ConsoleTaskService;
 import ru.nsu.ci.service.TaskService;
+import ru.nsu.ci.service.TaskServiceImpl;
 
 public class ConsoleTaskController {
 
-    private final TaskService taskService = new ConsoleTaskService();
+    private final TaskService taskService = new TaskServiceImpl();
 
     // добавить новую задачу
     public void addTask(String title, String description) {
