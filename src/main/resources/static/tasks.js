@@ -45,8 +45,8 @@ angular.module('taskApp', [])
 
         taskList.remaining = function () {
             let count = 0;
-            angular.forEach(taskList.tasks, function (todo) {
-                count += todo.ready ? 0 : 1;
+            angular.forEach(taskList.tasks, function (task) {
+                count += task.ready ? 0 : 1;
             });
             return count;
         };
