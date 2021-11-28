@@ -23,14 +23,14 @@ public class TaskRestController {
         return "Hello from tasks controller!";
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<TaskDto> get() {
         return taskService.listAllTasks().stream()
             .map(TaskDto::new)
             .collect(Collectors.toList());
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void addTask(String title, String description) {
         taskService.addTask(title, description);
     }

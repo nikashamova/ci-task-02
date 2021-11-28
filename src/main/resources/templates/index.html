@@ -15,7 +15,7 @@
             <label class="checkbox">
                 <details>
                     <summary>
-                        <input type="checkbox" ng-model="task.ready" ng-click="taskList.finishTask(task.title, task.ready)">
+                        <input type="checkbox" ng-model="task.ready" ng-change="taskList.finishTask(task.title, task.ready)">
                         <span class="ready-{{task.ready}}">{{task.title}}</span>
                     </summary>
                     <p>
