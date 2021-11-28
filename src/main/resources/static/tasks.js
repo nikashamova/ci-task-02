@@ -39,6 +39,7 @@ angular.module('taskApp', [])
                     }
                 });
             } else {
+                //toDo: добавить логику для того, чтобы отметить задачку как не выполненную
                 console.log('the same logic but for unfinished');
             }
         }
