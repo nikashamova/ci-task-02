@@ -35,5 +35,10 @@ public interface TaskService {
 
     void markAsFinished(Integer taskId);
 
+    void markAsFinished(String title);
+
     void markAsUnFinished(Integer taskId);
+
+    void markAsUnFinished(String title);
+
 }
