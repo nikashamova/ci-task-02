@@ -1,7 +1,13 @@
 package ru.nsu.ci.repo;
 
-public class ConsoleTaskRepository /*раскомментировать: implements TaskRepository*/ {
+import java.util.HashMap;
+import java.util.Map;
 
-    // Реализовать хранение задач с помощью Map<Integer, Task>, где ключ -- id таски
+import ru.nsu.ci.entity.Task;
+
+public class ConsoleTaskRepository implements TaskRepository {
+
+    // хранение задач с помощью Map<Integer, Task>, где ключ -- id таски
+    private final Map<Integer, Task> tasks = new HashMap<>();
 
 }

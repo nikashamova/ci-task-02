@@ -7,6 +7,8 @@ import ru.nsu.ci.entity.Task;
 
 public interface TaskService {
 
+    List<Task> listAllTasks();
+
     List<Task> listAllUnfinishedTasks();
 
     List<Task> listAllFinishedTasks();
