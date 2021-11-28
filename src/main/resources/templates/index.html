@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="taskApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+<h2>Мои заметки</h2>
+<div ng-controller="TaskListController as taskList">
+    <span>{{taskList.remaining()}} из {{taskList.tasks.length}} осталось выполнить</span>
+    <h4>Текущие заметки</h4>
+    <ul class="unstyled">
+        <li ng-repeat="task in taskList.tasks">
+            <label class="checkbox">
+                <details>
+                    <summary>
+                        <input type="checkbox" ng-model="task.ready" ng-click="taskList.finishTask(task.title, task.ready)">
+                        <span class="ready-{{task.ready}}">{{task.title}}</span>
+                    </summary>
+                    <p>
+                        {{task.description}}
+                    </p>
+                </details>
+
+            </label>
+        </li>
+    </ul>
+    <div class="highlighted">
+        <h4>Новая заметка</h4>
+        <form ng-submit="taskList.addTask()">
+            <input class="small-input" type="text" ng-model="taskList.taskTitle" placeholder="Заголовок Заметки">
+            <br>
+            <textarea class="large-input" ng-model="taskList.taskDescription" placeholder="Текст Заметки"></textarea>
+            <br>
+            <br>
+            <input class="btn-primary" type="submit" value="Добавить">
+        </form>
+    </div>
+</div>
+</body>
+</html>
