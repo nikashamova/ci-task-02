@@ -3,6 +3,7 @@ package ru.nsu.ci.controller.model;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import ru.nsu.ci.entity.Task;
 
@@ -13,7 +14,7 @@ public class TaskDto {
     private String description;
     private LocalDateTime finishDateTime;
     private boolean ready;
-    private List<CommentDto> comments = new ArrayList<>();
+    private List<CommentDto> comments;
 
     public TaskDto(Task task) {
         this.id = task.id();
@@ -21,6 +22,13 @@ public class TaskDto {
         this.description = task.description();
         this.finishDateTime = task.finishDateTime();
         this.ready = task.isReady();
+        if (task.comments() != null) {
+            this.comments = task.comments().stream()
+                .map(CommentDto::new)
+                .collect(Collectors.toList());
+        } else {
+            this.comments = new ArrayList<>();
+        }
     }
 
     public Integer getId() {
