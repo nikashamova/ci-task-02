@@ -7,5 +7,4 @@ public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository repository = new ConsoleTaskRepository();
 
-
 }
