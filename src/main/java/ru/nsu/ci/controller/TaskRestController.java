@@ -3,6 +3,7 @@ package ru.nsu.ci.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,13 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ru.nsu.ci.controller.model.TaskDto;
 import ru.nsu.ci.service.TaskService;
-import ru.nsu.ci.service.TaskServiceImpl;
 
 @RestController
 @RequestMapping("tasks")
 public class TaskRestController {
 
-    private final TaskService taskService = new TaskServiceImpl();
+    private final TaskService taskService;
+
+    public TaskRestController(@Qualifier("DBTaskService") TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @GetMapping("/hello")
     public String hello() {

@@ -1,7 +1,21 @@
 package ru.nsu.ci.entity;
 
-public class Comment {
+import java.time.LocalDateTime;
 
-    // добавить нужные поля, конструкторы и методы
+public interface Comment {
+    Integer id();
 
+    void setId(Integer id);
+
+    String comment();
+
+    void setComment(String comment);
+
+    String description();
+
+    void setDescription(String description);
+
+    LocalDateTime creationDateTime();
+
+    void setCreationDateTime(LocalDateTime creationDateTime);
 }
